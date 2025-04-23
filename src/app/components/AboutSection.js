@@ -1,15 +1,10 @@
+// /src/app/components/AboutSection.js
 export default function AboutSection() {
 	return (
-		<section
-			id="about"
-			className="py-16 sm:py-20 px-4 sm:px-6 bg-gray-50 dark:bg-gray-900"
-		>
+		<section id="about" className="py-20 px-6 bg-gray-50">
 			<div className="max-w-5xl mx-auto text-center">
-				<h2 className="text-3xl sm:text-4xl font-bold text-teal-600 dark:text-teal-400">
-					About Me
-				</h2>
-
-				<p className="mt-4 text-base sm:text-lg text-gray-700 dark:text-gray-300 max-w-xl mx-auto">
+				<h2 className="text-4xl font-bold text-teal-600">About Me</h2>
+				<p className="mt-4 text-lg text-gray-700 max-w-xl mx-auto">
 					I’m a passionate Full Stack Developer with experience in
 					building dynamic web applications. I specialize in
 					JavaScript-based technologies such as React, Node.js, and
@@ -17,37 +12,43 @@ export default function AboutSection() {
 					technologies.
 				</p>
 
-				{/* Skills Section */}
-				<div className="mt-10">
-					<h3 className="text-xl sm:text-2xl font-semibold text-teal-600 dark:text-teal-400">
+				<div className="mt-8">
+					<h3 className="text-2xl font-semibold text-teal-600">
 						Skills
 					</h3>
-					<ul className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6 mt-6 text-gray-700 dark:text-gray-300">
-						{[
-							"JavaScript",
-							"React",
-							"Node.js",
-							"Next.js",
-							"MongoDB",
-							"Tailwind CSS",
-							"Express.js",
-							"Git",
-						].map((skill, index) => (
-							<li
-								key={index}
-								className="flex justify-center items-center font-semibold text-sm sm:text-base"
-							>
-								{skill}
-							</li>
-						))}
+					<ul className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6 mt-6 text-gray-700">
+						<li className="flex justify-center items-center space-x-2">
+							<span className="font-semibold">JavaScript</span>
+						</li>
+						<li className="flex justify-center items-center space-x-2">
+							<span className="font-semibold">React</span>
+						</li>
+						<li className="flex justify-center items-center space-x-2">
+							<span className="font-semibold">Node.js</span>
+						</li>
+						<li className="flex justify-center items-center space-x-2">
+							<span className="font-semibold">Next.js</span>
+						</li>
+						<li className="flex justify-center items-center space-x-2">
+							<span className="font-semibold">MongoDB</span>
+						</li>
+						<li className="flex justify-center items-center space-x-2">
+							<span className="font-semibold">Tailwind CSS</span>
+						</li>
+						<li className="flex justify-center items-center space-x-2">
+							<span className="font-semibold">Express.js</span>
+						</li>
+						<li className="flex justify-center items-center space-x-2">
+							<span className="font-semibold">Git</span>
+						</li>
 					</ul>
 				</div>
 
 				{/* CTA Button */}
-				<div className="mt-10">
+				<div className="mt-8">
 					<a
-						href="#contact"
-						className="inline-block px-5 py-2 text-sm sm:text-base bg-teal-600 text-white rounded-lg hover:bg-teal-700 transition-all dark:bg-teal-500 dark:hover:bg-teal-600"
+						href="#contact" // Link to your contact section or page
+						className="px-6 py-2 text-white bg-teal-600 rounded-lg hover:bg-teal-700 transition-all"
 					>
 						Get In Touch
 					</a>

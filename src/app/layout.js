@@ -26,7 +26,7 @@ export default function RootLayout({ children }) {
 				<nav>
 					<Navbar />
 				</nav>
-				<main className="pt-[50px] lg:pt-[70px]">{children}</main>
+				<main className="pt-[70px]">{children}</main>
 			</body>
 		</html>
 	);

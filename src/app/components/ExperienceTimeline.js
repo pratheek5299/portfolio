@@ -1,3 +1,4 @@
+// /src/app/components/ExperienceTimeline.js
 import Image from "next/image";
 
 const experienceData = [
@@ -34,52 +35,49 @@ const experienceData = [
 
 export default function ExperienceTimeline() {
 	return (
-		<section
-			id="experience"
-			className="py-16 sm:py-20 px-4 sm:px-6 bg-gray-100 dark:bg-gray-900"
-		>
+		<section id="experience" className="py-20 px-6 bg-gray-100">
 			<div className="max-w-5xl mx-auto text-center">
-				<h2 className="text-3xl sm:text-4xl font-bold text-teal-600 dark:text-teal-400">
+				<h2 className="text-4xl font-bold text-teal-600">
 					Experience Timeline
 				</h2>
 
-				<div className="mt-8 space-y-8 sm:space-y-6">
+				<div className="mt-8 space-y-6">
 					{experienceData.map((job, index) => (
 						<div
 							key={index}
-							className="p-6 sm:p-8 bg-white dark:bg-gray-800 rounded-2xl shadow-xl transition-all hover:shadow-2xl transform duration-300 text-left"
+							className="p-8 bg-white rounded-2xl shadow-xl transition-all hover:shadow-2xl  transform duration-300"
 						>
 							{/* Company Logo and Info */}
-							<div className="flex flex-col sm:flex-row items-start sm:items-center space-y-4 sm:space-y-0 sm:space-x-6 mb-6">
+							<div className="flex items-center justify-start space-x-6 mb-6">
 								<Image
 									src={job.logo}
 									alt={job.company}
 									width={60}
 									height={60}
-									className="rounded-full bg-white py-3 h-auto w-auto"
+									className="rounded-full"
 								/>
-								<div>
-									<h3 className="text-xl sm:text-2xl font-semibold text-teal-600 dark:text-teal-400">
+								<div className="text-left">
+									<h3 className="text-2xl font-semibold text-teal-600">
 										{job.title}
 									</h3>
-									<p className="text-gray-600 dark:text-gray-300 text-lg">
+									<p className="text-gray-500 text-lg">
 										{job.company}
 									</p>
-									<p className="text-gray-500 dark:text-gray-400 text-sm">
+									<p className="text-gray-500 text-sm">
 										{job.location}
 									</p>
-									<p className="text-gray-500 dark:text-gray-400 text-sm">
+									<p className="text-gray-500 text-sm">
 										{job.date}
 									</p>
 								</div>
 							</div>
 
 							{/* Summary of Responsibilities */}
-							<ul className="mt-4 space-y-3 list-disc pl-6 text-gray-700 dark:text-gray-300">
+							<ul className="mt-4 text-gray-700 space-y-3 list-disc pl-6">
 								{job.summary.map((point, idx) => (
 									<li
 										key={idx}
-										className="text-base sm:text-lg"
+										className="text-left text-base"
 									>
 										{point}
 									</li>
@@ -87,8 +85,8 @@ export default function ExperienceTimeline() {
 							</ul>
 
 							{/* Tech Stack */}
-							<div className="mt-6 text-gray-800 dark:text-gray-200">
-								<span className="font-semibold text-teal-600 dark:text-teal-400">
+							<div className="mt-6 text-gray-800">
+								<span className="font-semibold text-teal-600">
 									Tech Stack:{" "}
 								</span>
 								{job.techStack}
