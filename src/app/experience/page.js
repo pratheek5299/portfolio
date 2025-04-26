@@ -1,6 +1,3 @@
-"use client";
-
-import React from "react";
 import Image from "next/image";
 
 const experienceData = [
@@ -35,59 +32,71 @@ const experienceData = [
 	},
 ];
 
-const Page = () => {
+export default function Page() {
 	return (
-		<div
-			className="max-w-[1536px] bg-gradient-to-r from-[#e0f7fa] to-[#e8f5e9]
- mx-auto px-4 md:px-8 lg:px-[2rem] xl:px-[3rem] 2xl:px-[4rem] h-screen py-10 "
+		<section
+			id="experience"
+			className="py-16 sm:py-20 px-4 sm:px-6 bg-gray-100 dark:bg-gray-900"
 		>
-			<h2 className="text-4xl md:text-5xl font-extrabold mb-10 text-center text-gray-900 text-black">
-				Experience
-			</h2>
+			<div className="max-w-5xl mx-auto text-center">
+				<h2 className="text-3xl sm:text-4xl font-bold text-teal-600 dark:text-teal-400">
+					Experience 
+				</h2>
 
-			<div className="grid grid-cols-2 gap-10">
-				{experienceData.map((exp, index) => (
-					<div
-						key={index}
-						className="bg-white bg-gray-800 p-6 rounded-2xl shadow-lg border border-gray-200 border-gray-700 hover:shadow-xl transition"
-					>
-						<div className="flex items-center gap-4 mb-4">
-							<div className="bg-white rounded-full py-2">
+				<div className="mt-8 space-y-8 sm:space-y-6">
+					{experienceData.map((job, index) => (
+						<div
+							key={index}
+							className="p-6 sm:p-8 bg-white dark:bg-gray-800 rounded-2xl shadow-xl transition-all hover:shadow-2xl transform duration-300 text-left"
+						>
+							{/* Company Logo and Info */}
+							<div className="flex flex-col sm:flex-row items-start sm:items-center space-y-4 sm:space-y-0 sm:space-x-6 mb-6">
 								<Image
-									src={exp.logo}
-									alt={`${exp.company} logo`}
-									width={50}
-									height={50}
-									className="rounded-full object-contain"
+									src={job.logo}
+									alt={job.company}
+									width={60}
+									height={60}
+									className="rounded-full bg-white py-3 h-auto w-auto"
 								/>
+								<div>
+									<h3 className="text-xl sm:text-2xl font-semibold text-teal-600 dark:text-teal-400">
+										{job.title}
+									</h3>
+									<p className="text-gray-600 dark:text-gray-300 text-lg">
+										{job.company}
+									</p>
+									<p className="text-gray-500 dark:text-gray-400 text-sm">
+										{job.location}
+									</p>
+									<p className="text-gray-500 dark:text-gray-400 text-sm">
+										{job.date}
+									</p>
+								</div>
 							</div>
-							<div>
-								<h3 className="text-xl font-semibold text-gray-900 text-white">
-									{exp.title}
-								</h3>
-								<p className="text-sm text-gray-600 text-gray-400">
-									{exp.company} — {exp.location}
-								</p>
-								<p className="text-xs text-gray-400 mt-1">
-									{exp.date}
-								</p>
+
+							{/* Summary of Responsibilities */}
+							<ul className="mt-4 space-y-3 list-disc pl-6 text-gray-700 dark:text-gray-300">
+								{job.summary.map((point, idx) => (
+									<li
+										key={idx}
+										className="text-base sm:text-lg"
+									>
+										{point}
+									</li>
+								))}
+							</ul>
+
+							{/* Tech Stack */}
+							<div className="mt-6 text-gray-800 dark:text-gray-200">
+								<span className="font-semibold text-teal-600 dark:text-teal-400">
+									Tech Stack:{" "}
+								</span>
+								{job.techStack}
 							</div>
 						</div>
-
-						<ul className="list-disc list-inside text-gray-700 text-gray-300 space-y-2 text-sm">
-							{exp.summary.map((item, i) => (
-								<li key={i}>{item}</li>
-							))}
-						</ul>
-
-						<p className="text-sm text-gray-500 text-gray-400 mt-4">
-							<strong>Tech stack:</strong> {exp.techStack}
-						</p>
-					</div>
-				))}
+					))}
+				</div>
 			</div>
-		</div>
+		</section>
 	);
-};
-
-export default Page;
+}
