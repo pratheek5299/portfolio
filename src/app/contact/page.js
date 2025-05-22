@@ -1,5 +1,6 @@
 "use client";
 import { useState } from "react";
+import { toast, Toaster } from "react-hot-toast";
 
 export default function Page() {
   const [form, setForm] = useState({ name: "", email: "", message: "" });
@@ -9,17 +10,37 @@ export default function Page() {
     setForm((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    alert("Message sent successfully!");
-    setForm({ name: "", email: "", message: "" });
+    const toastId = toast.loading('Sending message...')
+    try {
+      const res = await fetch("/api/send-mail", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(form),
+      });
+
+      if (res.ok) {
+        toast.success("Message sent successfully!", { id: toastId });
+        setForm({ name: "", email: "", message: "" });
+      } else {
+        toast.error("Failed to send message. Please try again later.", { id: toastId });
+      }
+    } catch (error) {
+      console.error("Error sending message:", error);
+      toast.error("Something went wrong. Please try again.", { id: toastId });
+    }
   };
+
 
   return (
     <section
       id="contact"
       className="py-16 sm:py-20 px-6 sm:px-8 bg-gray-100 dark:bg-gray-900"
     >
+      <Toaster />
       <div className="max-w-4xl mx-auto text-center">
         <h2 className="text-3xl sm:text-4xl font-bold text-teal-600 dark:text-teal-400">
           Contact Me
